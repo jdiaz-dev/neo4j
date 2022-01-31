@@ -1,0 +1,1 @@
+match (c:Category{name:"Comidas"}) create (l:LasCausasDeLaPicanteria{name:'Las Causas De La Picanteria'}), (c)-[:CONTAINS_SUB_CATEGORY]->(l) return l
