@@ -1,5 +1,5 @@
 //create bussiness
-MATCH (a:Account{id:"ca39b062-31e5-4367-b71a-152a61045cd3"}) CREATE (b:Bussines{}), (a)-[:CREATED]->(b) set b += {id:"a11dae60-c403-46b0-a721-c626b96bb9f8", name:"La Picantería de Jonathan", description:"En la picantería se cocina con el Jonathan", phone:963852147, address:"Jr Ibañez #1111", district:"Cañete", photo:"La Picantería 2.png", state:true}  return b
+MATCH (a:Account{id:"ca39b062-31e5-4367-b71a-152a61045444"}) CREATE (b:Bussines{}), (a)-[:CREATED]->(b) set b += {id:"a11dae60-c403-46b0-a721-c626b96bb9f8", name:"La Picantería de Jonathan", description:"En la picantería se cocina con el Jonathan", phone:963852147, address:"Jr Ibañez #1111", district:"Cañete", photo:"La Picantería 2.png", state:true}  return b
 
 // get bussines by id
 MATCH (a:Account{id: "ca39b062-31e5-4367-b71a-152a61045cd3"})-[:CREATED]->(b:Bussines{id: "a11dae60-c403-46b0-a721-c626b96bb9f8"}) return b
@@ -15,3 +15,8 @@ MATCH (a:Account{id: "ca39b062-31e5-4367-b71a-152a61045cd3"})-[:CREATED]->(b:Bus
 //remove bussines
 MATCH (a:Account{id: "ca39b062-31e5-4367-b71a-152a61045cd3"})-[:CREATED]->(b:Bussines{id: "938d359e-f55d-4a70-bb75-a92ca60d732c"}) set b.state = false return b
 
+------------------------------
+//to see execution plan
+EXPLAIN MATCH (a:Account{id: "ca39b062-31e5-4367-b71a-152a61045444"})-[:CREATED]->(b:Bussines{id: "a11dae60-c403-46b0-a721-c626b96bb9f8"}) return b
+
+PROFILE MATCH (a:Account{id: "ca39b062-31e5-4367-b71a-152a61045444"})-[:CREATED]->(b:Bussines{id: "a11dae60-c403-46b0-a721-c626b96bb9f8"}) return b
